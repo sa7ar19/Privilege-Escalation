@@ -40,20 +40,26 @@ whoami ||id|| cat /etc/passwd
 
 ### Network Enum
 
-| Type | Windows | Linux |
-| --- | --- | --- |
-| open-ports | ipconfig /all || route print||netstat -ano | ip a || ifconfig ss -anp || cat /sbin/route || netstat -anp |
+1. Open Ports :
+
+```bash
+#Windows
+ipconfig /all || route print||netstat -ano    
+
+#Linux
+ip a || ifconfig ss -anp || cat /sbin/route || netstat -anp
+```
 
 ### Firewall Enum
 
-| Type | Linux | Windows |
-| --- | --- | --- |
-|  | iptables ⇒However, depending on how the firewall is configured, we may be able to glean information about the rules as a standard user || /etc/iptables | netsh advfirewall show currentprofile netsh advfirewall firewall show rule name=all  |
+- Linux
+`iptables` ⇒However, depending on how the firewall is configured, we may be able to glean information about the rules as a standard user || `/etc/iptables`
+- Windows
+`netsh advfirewall show currentprofile
+netsh advfirewall firewall show rule name=all`
 ### Enumerating scheduled tasks
 
 Scheduled task :
-
-
 
 ---
 
