@@ -1,17 +1,54 @@
 # Privilege-Escalation
-[Manual Enumeration](https://www.notion.so/9c1d5126dce34940ab179be0e6ad28f5?pvs=21)
+###Manual Enumeration
+1. processes-services :
+
+```bash
+#Windows 
+tasklist /svc
+
+#Linux
+ps aux
+```
+
+1. About-version :
+
+```bash
+#Windows 
+systeminfo | findstr /c:”os name” /c:”os  version” /c:”systemtype”
+
+#Linux
+uname -a || cat /etc/issue
+```
+
+1. Enum-Host_Name :
+
+```bash
+#Windows & Linux
+ 
+hostname
+```
+
+1. Enum-Users :
+
+```bash
+#Windows
+whoami || net user || net user <username> 
+
+#Linux
+whoami ||id|| cat /etc/passwd 
+```
 
 ### Network Enum
 
 | Type | Windows | Linux |
 | --- | --- | --- |
-| open-ports | ipconfig /all          || route print                                                 ||netstat -ano                                                             | ip a || ifconfig                                                       ss -anp ||    cat /sbin/route || netstat -anp |
+| open-ports | ipconfig /all  || route print ||netstat -ano | ip a || ifconfig  ss -anp || cat /sbin/route || netstat -anp |
 
 ### Firewall Enum
 
 | Type | Linux | Windows |
 | --- | --- | --- |
-|  | iptables ⇒However, depending on how the firewall is configured, we may be able to glean information about the rules as a standard user      || /etc/iptables | netsh advfirewall show currentprofile           netsh advfirewall firewall show rule name=all  |
+|  | iptables ⇒However, depending on how the firewall is configured, we may be able to glean information about the rules as a standard user || /etc/iptables | netsh advfirewall show currentprofile netsh advfirewall firewall show rule name=all  |
 
 ### Enumerating scheduled tasks
 
